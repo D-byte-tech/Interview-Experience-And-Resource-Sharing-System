@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> {% endcomment %}
+        <style>
+          *{
+            box-sizing: border-box;
+          }
+          body {
+              display: flex;
+              justify-content: center;
+              {% comment %} background-color: #9370DB; {% endcomment %}
+              background: radial-gradient(#e9ecef, transparent);
+          }
+          
+          /* Full-width input fields */
+            input[type=text], input[type=password] , select, input[type=date]{
+            width: 100%;
+            padding: 10px;
+            margin: 2px 0 20px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+          }
+          input[type=email], select, input[type=email]{
+            width: 100%;
+            padding: 10px;
+            margin: 2px 0 20px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+          }
+          p{
+            margin: 2px;
+          }
+          input[type=text]:focus, input[type=password]:focus, select[type=text]:focus {
+            background-color: #ddd;
+            outline: none;
+          }
+          input[type=email]:focus, select[type=email]:focus {
+            background-color: #ddd;
+            outline: none;
+          }
+          .req{
+              color: red;
+          }
+          hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 15px;
+          }
+          table{
+              width: 100%;
+          }
+          
+          /* Set a style for all buttons */
+          button {
+            background-color: #9370DB;
+            color: white;
+            padding: 10px 10px;
+            margin-left: 10px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.9;
+          }
+          
+          button:hover {
+            opacity:1;
+          }
+          
+          /* Extra styles for the cancel button */
+          .cancelbtn {
+            padding: 10px 10px;
+            background-color: #DA70D6;
+          }
+          
+          /* Float cancel and signup buttons and add an equal width */
+          .cancelbtn, .signupbtn {
+            float: right;
+            width: 130px;
+          }
+          
+          /* Add padding to container elements */
+          .container {
+              background-color: white;
+              padding-top: 1.5px;
+              padding-left: 10px;
+              padding-right: 10px;
+              padding-bottom: 10px;
+              border-radius: 10px;
+              margin-top: 20px;
+          }
+          
+          /* Clear floats */
+          .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+          
+          /* Change styles for cancel button and signup button on extra small screens */
+          @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+              width: 100%;
+            }
+        }
+      </style>        
+        <script>
+          function myFunction(){
+            var status=document.getElementById("role");
+            if(status.value=="fresher"){
+              document.getElementById("companyName").value = '';
+              document.getElementById("yoj").value = '';
+              document.getElementById("companyName").disabled = true;
+              document.getElementById("yoj").disabled = true;
+            }
+            else{
+            	document.getElementById("companyName").disabled = false;
+                document.getElementById("yoj").disabled = false;
+            
+            }
+          }
+        </script>
+    </head>
+    <body>
+        <form action="/signup" method="POST" style="width: 50%; display:block;" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="container">
+              <h1>Sign Up</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+              {% if messages %}
+                {% for message in messages %}
+                <div class='alert alert-info'>
+                    {{ message }}
+                </div>
+                {% endfor %}
+              {% endif %}
+              <label for="role"><b>Your Role</b><span class="req"> *</span></label>
+              <select id="role" name="role" onchange="myFunction()" required> 
+                <option value="" disabled selected class="select">Select your option</option>
+                <option value="fresher" id="fresher">Fresher</option>
+                <option value="experienced" id="experienced">Experienced</option>
+              </select>
+                <table>
+                    <tr>
+                    <td><label for="firstname" ><b>First Name</b><span class="req"> *</span></label>
+                        <input type="text" id="firstname" placeholder="Enter First Name" name="firstname" required>
+                    </td>
+                    <td> <label for="lastname"><b>Last Name</b><span class="req"> *</span></label>
+                        <input type="text" placeholder="Enter Last Name" id="lastname" name="lastname" required>
+                    </td>
+                    </tr>
+                </table>             
+              <label for="branch" ><b>Field of Study</b><span class="req"> *</span></label>
+              <select name="branch" id="branch" required> 
+                <option value="" disabled selected>Select your option</option>
+                <option value="CS">Computer Science</option>
+                <option value="IT">Information Technology</option>
+                <option value="EC">Electronics and Communications</option>
+                <option value="EE">Electrical and Electronics</option>
+                <option value="EI">Electronics and Instrumentation</option>
+                <option value="MT">Machatronics</option>
+                <option value="BT">Biotechnology</option>
+                <option value="CE">Chemical Engineering</option>
+              </select>
+              <table>
+                  <tr>
+                        <td><label for="email"><b>Email</b><span class="req"> *</span></label>
+                            <input type="email" placeholder="Enter Email" id="signupEmail" name="email" required></td>
+                        <td><label for="uname"><b>Username</b><span class="req"> *</span></label>
+                            <input type="text" placeholder="Enter Username" name="uname" id="uname" required></td>
+                  </tr>
+              </table>              
+              <table>
+                  <tr>
+                      <td>
+                        <label for="psw" ><b>Password</b><span class="req"> *</span></label>
+                        <input type="password" id="password" placeholder="Enter Password" name="psw" pattern="(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                      </td>
+                      <td>
+                        <label for="psw-confirm"><b>Confirm Password</b><span class="req"> *</span></label>
+                        <input type="password" id="confirm_password" placeholder="Confirm Password" name="psw-confirm" pattern="(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                      </td>
+                  </tr>
+              </table>
+              <table id="experienced">
+                <tr>
+                  <td>
+                      <label for="companyName"><b>Company Name</b></label>
+                      <input type="text" placeholder="Enter Company Name" name="companyName" id="companyName" required>
+                    </td>
+                    <td>
+                      <label for="yoj"><b>Year of Joining</b></label>
+                      <select id="yoj" name="yoj" required></select>
+                    </td>
+                </tr>
+              </table>
+              <label for="linkedIn"><b>LinkedIn Profile</b><span class="req"> *</span></label>
+              <input type="text" placeholder="Enter LinkedIn Profile Link" name="linkedIn" id="linkedIn" pattern="^https?://((www|\w\w)\.)?linkedin.com/((in/[^/]+/?)|(pub/[^/]+/((\w|\d)+/?){3}))$" required>
+              <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+              </label>
+          
+              <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+              
+              <div class="clearfix">
+                <button type="reset" id="reset" class="cancelbtn" style="background-color: #DFB163;">Reset</button>
+                <button type="submit" id="signup" class="signupbtn" style="background-color: #DFB163;">Sign Up</button>
+              </div>
+            </div>
+          </form>
+    </body>
+    
+    <script>
+      //year
+      const yearSelect = document.getElementById("yoj");      
+        
+      function populateYears(){
+        //Get the current year as a number
+        let year = new Date().getFullYear();
+        //Make the previous 30 years be an option
+        for(let i = 0; i < 30; i++){
+          const option = document.createElement("option");
+          option.textContent = year - i;
+          yearSelect.appendChild(option);
+        }
+      }
+
+      populateYears();
+    
+    
+      //validate password
+      var password = document.getElementById("password");
+      confirm_password = document.getElementById("confirm_password");
+
+      function validatePassword(){
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+          confirm_password.setCustomValidity('');
+        }
+      }
+
+      password.onchange = validatePassword;
+      confirm_password.onkeyup = validatePassword;
+
+    </script>
+ 
+</html>

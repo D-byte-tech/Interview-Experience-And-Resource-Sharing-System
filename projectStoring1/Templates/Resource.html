@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	<title>
+		Share Resources
+	</title>
+
+	<style>
+
+
+      button:hover {
+  background-color: rgb(180,207,236);
+}
+    
+    
+        .required:after {
+                content:" *";
+                color: red;
+              }
+
+		/* Styling the Body element i.e. Color,
+		Font, Alignment */
+		body {
+			
+            background: linear-gradient(
+                       to top, 
+                      #ffffff 0%,
+                      #ffffff 65%, 
+                      #e9ecef 30%
+                );
+            
+            background-size: 50% ;
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+            
+			max-width: 900px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input,
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+            box-shadow: 3px 6px 6px #888888;
+			background-color: #C9EBEF;
+			font-family: inherit;
+			width:    100%;
+			
+            display: inline-block;
+            font-color:black;
+       
+            border-radius: 10px;
+            border: 4px double #cccccc
+            text-align: center;
+            font-size: 15px;
+            padding:10px;
+            width: 100px;
+           -webkit-transition: all 0.5s;
+           -moz-transition: all 0.5s;
+           -o-transition: all 0.5s;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 20px;
+            
+		}
+	</style>
+</head>
+
+<body style="background-color:#e9ecef">
+	<h1 style="text-shadow: 2px 2px 4px #000000;color:white; font-size:50px;">SHARE RESOURCES</h1>
+
+
+	<!-- Create Form -->
+	<form id="form" action="/resource" method="post" enctype="multipart/form-data">
+		{%  csrf_token  %}
+
+		<!-- Details -->
+		
+		<!--<div class="form-control">
+			<label for="username" id="label-username" class="required" >
+				Username
+			</label>
+
+			
+			<input type="Text"
+				id="username"
+				placeholder="Enter your username" name="username" required />
+		</div>-->
+        
+        <div class="form-control">
+			<label for="date" id="label-date" class="required" >
+				Date
+			</label>
+
+			<!-- Input Type Date -->
+			<input type="Date"
+				id="date" name="date" required />
+		</div>
+
+		<div class="form-control">
+			<label for="sname" id="label-sname" class="required" >
+				Subject Name
+			</label>
+
+			<!-- Input Type Text-->
+			<input type="Text"
+				id="sname" list="browsers"
+				placeholder="Enter subject name" name="sname" minlength="4" maxlength="35" required />
+
+				<datalist id="browsers">
+					<option value="Data Structure">
+						<option value="Algorithms">
+						<option value="DBMS">
+						<option value="Operating Systems">
+						<option value="Computer Network">
+						<option value="Artificial Intelligence">
+						<option value="Machine Learning">
+						<option value="Compiler Design">
+						<option value="Microprocessor & Microcontroller">
+						<option value="Computer Architecture">
+						<option value="Digital Communication">
+						<option value="OOPs">
+						<option value="Objective-C">
+						<option value="C++ ">
+						<option value="C#">
+						<option value="Java">
+						<option value="Python">
+						<option value="HTML">
+						<option value="CSS">
+						<option value="JavaScript">
+						<option value="Ruby">
+						<option value="Flutter">
+						<option value="Django">
+						<option value="PHP">
+						<option value="SQL">
+						<option value="Ruby">
+						<option value="React JS">
+						<option value="Node.js">
+						<option value="Artificial Intelligence">
+						<option value="Computer Graphics">
+						<option value="Web development">
+						<option value="Swift">
+						<option value="Fortran">
+						<option value="Dart">
+						<option value="Perl">
+						<option value="Perl">
+						<option value="Kotlin">
+						<option value="Clojure">
+						<option value="Bash">
+						<option value="Object Pascal ">
+						<option value="COBOL">
+						<option value="Logo">
+						<option value="Internet Of Things">
+						<option value="Digital Electronics">
+						<option value="Pneumatic">
+						<option value="Hydraulic">
+						<option value="Industrial Automation">
+						<option value="Process Control">
+						<option value="Analog & Digital Circuits">
+						<option value="Power System">
+						<option value="Electrical Machine">
+						<option value="Linear Control System">
+						<option value="Industrial Instrumentation">
+						<option value="Electrical & Electronic Measurement">
+						<option value="Robotic and control">
+				</datalist>
+
+		</div>
+        
+
+		<div class="form-control">
+			<label for="topic" id="label-topic" class="required" >
+				Topic
+			</label>
+
+			<!-- multi-line text input control -->
+			<textarea  id="topic" rows="1" cols="20" name="topic" placeholder="Enter the topic of resource" required >
+			</textarea>
+		</div>
+        
+      
+        
+         <div class="form-control">
+			<label for="resource" id="label-resource" >
+				Resources Description
+			</label>
+
+			<!-- multi-line text input control -->
+			<textarea  id="resource" rows="4" cols="50" name="resourceDesc" placeholder="Resources" >
+			</textarea>
+		</div>
+        
+        <div class="form-control">
+			<label for="file" id="label-file" class="required" >
+				File
+			</label>
+        </div>
+        
+         <div class="form-control">
+			<!-- Input Type File-->
+			<input type="File"
+				id="file" name="file" style="border-color:white; padding: 0px;" multiple required />
+                <div  id="selectedFiles"></div>
+		</div>
+
+		
+		<button type="submit" value="submit" style="color:black;background-color:#e9ecef">
+			Submit
+		</button>
+        
+        <button type="reset" onclick="myFunction()" name="reset" id="reset" style="color:black;background-color:#e9ecef">
+			Reset
+		</button>
+        
+             
+	</form>
+    {% if url %}
+	  <p> Uploaded file: <a href="{{ url }}">{ {url }} </a> </p>
+
+   {% endif %}
+   
+    
+</body>
+
+      <script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init, false);
+	
+	function init() {
+		document.querySelector('#file').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		for(var i=0; i<files.length; i++) {
+			var f = files[i];
+			
+			selDiv.innerHTML += f.name + "<br/>";
+
+		}
+		
+	}
+    
+
+   //file upload limit 1GB (BYTES) (in binary) for each
+    var uploadField = document.getElementById("file");
+
+    uploadField.onchange = function() {
+	  	if(this.files[0].size > 1048576000){
+		 	alert("File is too big!");
+		 	this.value = "";
+	  	};
+  	};
+	  
+
+
+
+//capitialize word
+
+	  document.getElementById("sname").addEventListener("input", forceLower);
+
+
+function forceLower(evt) {
+ 
+  var words = evt.target.value.toLowerCase().split(/\s+/g);
+  
+
+  var newWords = words.map(function(element){   
+    
+    
+    return element !== "" ?  element[0].toUpperCase() + element.substr(1, element.length) : "";
+  });
+  
+ 
+ evt.target.value = newWords.join(" "); 
+}
+    
+
+
+//reset files
+	function myFunction() {
+		document.getElementById("selectedFiles").style.visibility = "hidden";
+	}
+	  
+
+
+
+	</script> 
+
+	
+       
+   
+
+</html>
+
+
+
+

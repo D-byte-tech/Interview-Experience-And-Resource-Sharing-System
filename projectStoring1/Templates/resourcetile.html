@@ -1,0 +1,360 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Growtogether</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+  
+      <!-- Navbar Start -->
+      <div class="container-fluid fixed-top nav-bar p-0">
+        <div class="container position-relative" style="z-index: 9;    width: 100%;
+        max-width: 100%;
+        padding: 0 !important;">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="/index" class="navbar-brand">
+
+					         <img class="max-h-l2 w-auto" src="{% static 'images/logo1.png' %}" />
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div style="padding-right:0 !important" class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <div style="line-height: 3em;font-weight: bold;margin-left:0.5em;margin-right:0.5em;" class="nav-item dropdown">
+                            <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown">INTERVIEW EXPERIENCES</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+							      <a href="/interviewtile" class="dropdown-item">View Interview Experience</a>
+                                <a href="/interview" class="dropdown-item">Share Interview Experience</a>
+                                
+                            </div>
+                        </div>
+                        <div style="line-height: 3em;font-weight: bold;margin-left:0.5em;margin-right:0.5em;" class="nav-item dropdown">
+                            <a href="#" class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" style="color:#DFB163;" >RESOURCES</a> 
+                            <div class="dropdown-menu rounded-0 m-0 "style="left: -2.8em;">
+							      <a href="/resourcetile" class="dropdown-item">View Resources</a>
+                                <a href="/resource" class="dropdown-item">Share Resources</a>
+                                
+                            </div>
+                        </div>
+                        <div style="margin-left:2em;" class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">
+                                <div style="text-align: center;">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>
+                                <div style="display:inline-flex;"><p style="margin-bottom:0;font-size: 0.9em;">Me</p>&nbsp;<i style="font-size: 1.3em;    line-height: 0.8;" class="fa fa-caret-down"></i></div>
+                            </a>
+                           
+                           
+                            <!-- <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">MY PROFILE</a> -->
+                             
+                            <div class="dropdown-menu rounded-0 m-0" style="left: -11em;">
+                                <div style="text-align: center;">
+                                    <i style="background: #e5e9ed;font-size: 2em;" class="fa fa-user" aria-hidden="true"></i>
+                                </div>
+                                <div style="text-align: center;margin:0.5em;font-weight:600;"><p style="margin-bottom:0;font-size: 0.9em;    letter-spacing: 0.5px;">{{dik.username}}</p></div>
+                                <div style="text-align: center;margin:0.5em;font-weight:600;letter-spacing"><p style="margin-bottom:0;font-size: 0.9em;    letter-spacing: 0.5px;">{{dik.email}}</p></div>
+                               
+                                <div style="text-align: center;border:2px solid blue;border-radius:5em;padding:0.3em;margin:0.7em;"><p style="margin-bottom:0;font-size: 0.9em;"><a href="/profile" style="text-decoration: none;color:black;"> View Profile</a></p></div>
+                                <hr>
+							      
+                                <a style="margin:0.5em;" href="/updateProfile" class="dropdown-item">Manage your Account</a>
+                               
+
+                                <hr style="margin-top:0.5rem;margin-bottom:0.5rem;">
+                                <a style="color:red;font-size:1.1em;font-weight:600;" href="/logout" class="dropdown-item">Logout</a>
+
+                            </div>
+                            
+                        </div>
+
+                        
+    
+    
+    
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+
+    <!-- Detail Start -->
+    <div class="container py-5">
+	    <div class="row pt-5" style="margin-top:4em;margin-bottom:1.3em;">
+	        <div class="col-lg-9 col-md-6 mb-5" style="max-width:50%;margin-left: 17%;">
+              
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control border-0" id="searchbar" placeholder="Search your details" onkeyup="searchFunc()" required="required" />
+                    </div>
+              
+                
+                </form>
+            </div>
+			
+		   <div class="col-lg-3 col-md-6 mb-5">
+              
+                <form action="">
+               
+              
+                    <div>
+                        <button class="btn btn-lg btn-primary btn-block border-0" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+		</div>
+        
+    
+            <div class="row pt-5">
+                {% for dest in dests %}  
+                <div style="margin-bottom:1.5em !important; list-style-type:none !important" class="col-lg-4 mt-5 mt-lg-0">
+                    <div style="border-radius: 20px;" class="d-flex flex-column text-center bg-secondary mb-5 py-5 px-4">
+             
+                        <h3 style="color: #1ad524 !important;" class="text-primary mb-3"><a style="color: #1ad524 !important;text-decoration: none;" href="resources/{{dest.sname}}">{{dest.sname}}</a></h3>
+     
+                    </div>
+    
+                </div>
+                {% endfor %}
+            </div>
+
+
+            
+            <a href="/interview">
+                <button id="share_button"><i class="fas fa-plus-circle"></i></button></a>
+                <style>
+                    #share_button{
+                    background: white;
+                position: fixed;
+                right: 0;
+                bottom: 6em;
+                margin-right: 1em;
+                margin-bottom: 1em;
+                border: none;
+                    }
+            
+                .fa-plus-circle{
+                    font-size: 3.5em;
+                color: #d8a143;
+                }
+                </style>
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+
+            
+    <footer class="bg-dark text-center text-white position-sticky" style="opacity: 0.95;margin-top:70px;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0" style="padding:0rem !important">
+          <!-- Section: Social media -->
+          <section class="mb-4" style="margin-bottom: 12.4px !important;margin-top: 24px;">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-white" href="https://mdbootstrap.com/">GrowTogether</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+
+           
+    
+    </div> 
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+    <script>
+
+        (function ($) {
+            "use strict";
+            
+            // Dropdown on mouse hover
+            $(document).ready(function () {
+                function toggleNavbarMethod() {
+                    if ($(window).width() > 992) {
+                        $('.navbar .dropdown').on('mouseover', function () {
+                            $('.dropdown-toggle', this).trigger('click');
+                        }).on('mouseout', function () {
+                            $('.dropdown-toggle', this).trigger('click').blur();
+                        });
+                    } else {
+                        $('.navbar .dropdown').off('mouseover').off('mouseout');
+                    }
+                }
+                toggleNavbarMethod();
+                $(window).resize(toggleNavbarMethod);
+            });
+            
+            
+            // Back to top button
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.back-to-top').fadeIn('slow');
+                } else {
+                    $('.back-to-top').fadeOut('slow');
+                }
+            });
+            $('.back-to-top').click(function () {
+                $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+                return false;
+            });
+        
+        
+        
+        
+        
+        
+        
+            
+        })(jQuery);
+        
+        
+    
+
+        $(document).ready(function () {
+
+            // toggle mobile menu
+            $('[data-toggle="toggle-nav"]').on('click', function () {
+                $(this).closest('nav').find($(this).attr('data-target')).toggleClass('hidden');
+                return false;
+            });
+        
+            // feather icons
+            feather.replace();
+        
+            // smooth scroll
+            var scroll = new SmoothScroll('a[href*="#"]');
+        
+            // tiny slider
+            $('#slider-1').slick({
+                infinite: true,
+                prevArrow: $('.prev'),
+                nextArrow: $('.next'),
+            });
+        
+            $('#slider-2').slick({
+                dots: true,
+                arrows: false,
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                centerMode: true,
+                customPaging: function (slider, i) {
+                    return '<div class="bg-white br-round w-1 h-1 opacity-50 mt-5" id=' + i + '> </div>'
+                },
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }, ]
+            });
+        });
+
+
+
+    </script>
+    <script>
+        function searchFunc() {
+            let input = document.getElementById('searchbar').value;
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('col-lg-4 mt-5 mt-lg-0');
+            console.log(x[0].children[0].innerHTML.toLowerCase());
+            for (i = 0; i < x.length; i++) { 
+                if (!x[i].children[0].innerHTML.toLowerCase().includes(input)) {
+                    //x[i].style.display="none" ;
+                    x[i].style.setProperty('display', 'none', 'important');
+                }
+                else {
+                    x[i].style.display="list-item";                 
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

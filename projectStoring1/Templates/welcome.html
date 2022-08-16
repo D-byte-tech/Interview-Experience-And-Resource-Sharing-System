@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>GrowTogether</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		.main{
+			background: linear-gradient(to bottom right, rgba(0,0,0,0), rgba(0,0,0,0.7)50%),url({% static 'images/wlcm.jpg' %});
+			background-position: center;
+			background-size: cover;
+			height: 100vh;
+		}
+		
+		.logo{
+			width: 240px;
+			position: absolute;
+			left: 1%;
+			top: 1%;
+		}
+		.content{
+			text-align: right;
+			color: #fff;
+			padding-top: 250px;
+			padding-right: 50px;
+		}
+		.content h1{
+			font-size: 60px;
+		}
+		.content h3{
+			font-size:25px;
+			padding-top: 15px;
+			padding-right: 150px;
+		}
+		.content p{
+			font-size: 20px;
+			font-style: italic;
+		}
+		.btn{
+			margin: 50px auto 0;
+			padding-right: 270px;
+		}
+		.btn a{
+			width: 200px;
+			font-size:25px;
+			text-decoration: none;
+			display: inline-block;
+			text-align: center;
+			padding: 12px 0;
+			color: #fff;
+			background-color: #DFB163;
+			border: none;
+			border-radius: 12px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+
+		<img src="{% static 'images/logo1.png' %}" class="logo">
+		<div class="content">
+			<h1>GET READY FOR A JOB!</h1>
+			<h3>CRACK THE INTERVIEW WITH US!</h3>
+			<div class="btn">
+				<a href="/login"> Let's get started!</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

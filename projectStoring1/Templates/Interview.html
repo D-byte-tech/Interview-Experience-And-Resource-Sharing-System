@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Share Interview Experience
+	</title>
+
+	<style>
+    
+           button:hover {
+  background-color: rgb(180,207,236);
+}
+    
+
+         .required:after {
+                content:" *";
+                color: red;
+              }
+
+		/* Styling the Body element i.e. Color,
+		Font, Alignment */
+		body {
+			
+            background: linear-gradient(
+                       to top, 
+                      #ffffff 0%,
+                      #ffffff 65%, 
+                      #e9ecef 30%
+                );
+            
+            background-size: 50% ;
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+            
+			max-width: 900px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input,
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+            box-shadow: 3px 6px 6px #888888;
+			background-color: #C9EBEF;
+			font-family: inherit;
+			width:    100%;
+			
+            display: inline-block;
+            font-color:black;
+       
+            border-radius: 10px;
+            border: 4px double #cccccc
+            text-align: center;
+            font-size: 15px;
+            padding:10px;
+            width: 100px;
+           -webkit-transition: all 0.5s;
+           -moz-transition: all 0.5s;
+           -o-transition: all 0.5s;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 20px;
+            
+		}
+	</style>
+</head>
+
+<body style="background-color:#e9ecef">
+	
+	<h1 style="text-shadow: 2px 2px 4px #000000; color:white; font-size:50px;">SHARE INTERVIEW EXPERIENCE</h1>
+
+	<!-- Create Form -->
+	<form id="form" action="/interview" method="post" enctype="multipart/form-data">
+        {%  csrf_token  %}
+
+		<!-- Details -->
+		
+		<!--<div class="form-control">
+			<label for="username" id="label-username"  class="required">
+				Username
+			</label>
+
+			 
+			<input type="Text"
+				id="username"
+				placeholder="Enter your username" name="username" required/>
+		</div>-->
+        
+        <div class="form-control">
+			<label for="date" id="label-date" class="required">
+				Date
+			</label>
+
+			<!-- Input Type Date -->
+			<input type="Date"
+				id="date" name="date" required />
+		</div>
+        
+        <div class="form-control">
+			<label for="year" id="label-year" class="required">
+				Year of Interview Held  
+			</label>
+
+			
+			<select  id="year" name="year" required>Year</select>
+		</div>
+        
+        
+
+		<div class="form-control">
+			<label for="cname" id="label-cname" class="required">
+				Company Name
+			</label>
+
+			<!-- Input Type Text-->
+			<input type="Text"
+				id="cname" list="browsers"
+				placeholder="Enter company name" name="cname" minlength="4" maxlength="35" required />
+
+				<datalist id="browsers">
+					<option value="Google">
+					<option value="Facebook">
+					<option value="Microsoft">
+					<option value="IBM">
+					<option value="Intel">
+					<option value="Oracle">
+					<option value="Uber">
+					<option value="Cisco">
+					<option value="Amazon">
+					<option value="Flipkart">
+					<option value="Myntra">
+					<option value="J.P Morgan">
+					<option value="McKinsey">
+					<option value="Airbnb">
+					<option value="Netflix">
+					<option value="Twitter">
+					<option value="Tesla">
+					<option value="Salesforce">
+					<option value="Apple">
+					<option value="Alibaba">
+					<option value="Adobe">
+					<option value="Pinterest">
+					<option value="LinkedIn">
+					<option value="Snap">
+					<option value="Dropbox">
+					<option value="Doordash">
+					<option value="Huawei">
+					<option value="Stripe">
+					<option value="Accenture">
+					<option value="TCS">
+					<option value="Capgemini">
+					<option value="Infosys">
+					<option value="Cognizant">
+					<option value="HCL">
+					<option value="Amdocs">
+					<option value="Wipro">
+					<option value="Tech Mahindra">
+					<option value="UST">
+					<option value="SAP">
+					<option value="LTI">
+					<option value="Deloitte">
+					<option value="Dell">
+					<option value="Barclays">
+					<option value="Jio">
+					<option value="Goldman Sachs">
+					<option value="Freelancer">
+					<option value="Synechron">
+					<option value="Honeywell">
+					<option value="OYO">
+					<option value="ITC Infotech">
+					<option value="Thoughtworks">
+					<option value="Ericsson">
+					<option value="Morgan Stanley">
+					<option value="Accolite Digital">
+					<option value="American Express">
+					<option value="Walmart">
+					<option value="UBS">
+					<option value="eLitmus">
+					<option value="Synopsys">
+					<option value="PhonePe">
+					<option value="Becton Dickinson">
+					<option value="Lenovo">
+					<option value="Samsung">
+					<option value="HP">
+					<option value="Nokia">
+					<option value="DRDO">
+					<option value="Procore Technologies">
+					<option value="Bain & Company">
+					<option value="Delta Air Lines">
+					<option value="HubSpot">
+					<option value="Lululemon">
+					<option value="HEB">
+					<option value="Mathworks">
+					<option value="Akamai">
+					<option value="ServiceNow">
+					<option value="DocuSign">
+					<option value="Rivian">
+					<option value="Five9">
+					<option value="Twilio">
+					<option value="IndiaMART">
+					<option value="Blizzard Entertainment">
+					<option value="Bloomberg L.P.">
+					<option value="Citrix">
+					<option value="Expedia">
+					<option value="Hewlett-Packard">
+					<option value="PayPal">
+					<option value="Qualcomm">
+					<option value="Zynga">
+					<option value="Texas Instruments">
+					<option value="Philips">
+					<option value="Paytm">
+					<option value="MakeMyTrip">
+					<option value="Snapdeal">
+					<option value="Bank of America">
+					<option value="ITC Infotech">
+					<option value="Aditya Birla">
+					<option value="Ola">
+					<option value="Dream11">
+					<option value="HSBC">
+					<option value="Vodafone">
+					<option value="Airtel">
+					<option value="Ajio">
+					<option value="max">
+					<option value="Nykaa">
+					<option value="YES BANK ">
+					<option value="Wells Fargo">
+					<option value="Hotstar">
+					<option value="YouTub">
+					<option value="Swiggy">
+					<option value="Tesco">
+					<option value="upGrad">
+					<option value="BYJU'S">
+					<option value="Zomato">
+					<option value="Comviva">
+					<option value="AMD">
+					<option value="Atlassian">
+					<option value="Innovaccer">
+					<option value="Meta">
+					<option value="Directi">
+					<option value="RadiSys">
+					<option value="Ericsson">
+					<option value="Quinbay">
+					<option value="Zensar Technologies">
+					<option value="HashedIn">
+					<option value="Informatica">
+					<option value="Eaton">
+					<option value="TrueMinds">
+					<option value="InfoEdge">
+					<option value="Optum ">
+					<option value="Commvault">
+					<option value="ZS associates">
+					<option value="Nomura">
+					<option value="Incedo">
+					<option value="PwC">
+					<option value="Thales">
+					<option value="Zensar Technologies">
+					<option value="British Telecom">
+					<option value="Zscaler">
+					<option value="ICICI Bank">
+					<option value="Infineon Technologies">
+					<option value="Sasken">
+					<option value="Odessa">
+					<option value="Xoriant">
+					<option value="Conduent">
+					<option value="Collabera">
+					<option value="DailyRounds">
+					<option value="Zycus">
+					<option value="Xilinx">
+					<option value="Altair">
+					<option value="Sony">
+				  </datalist>
+					
+		</div>
+
+        
+        <div class="form-control">
+			<label for="branch" id="label-branch" class="required">
+				Branch
+			</label>
+
+			<!-- Input Type Text-->
+			<input type="Text"
+				id="branch"
+				placeholder="Enter branch for which company recruit " name="branch" required />
+		</div>
+
+		<div class="form-control">
+			<label for="title" id="label-title" class="required">
+				Title 
+			</label>
+
+			<!-- multi-line text input control -->
+			<textarea  id="title" rows="1" cols="20"  name="title" placeholder="Enter the title of interview experience" required >
+			</textarea>
+		</div>
+        
+        <div class="form-control">
+			<label for="interexp" id="label-interexp" class="required">
+				Interview Experience 
+			</label>
+
+			<!-- multi-line text input control -->
+			<textarea  id="interexp" name="interexp"
+				placeholder="Enter your interview experience" rows="6" cols="100"  required >
+			</textarea>
+		</div>
+        
+         <div class="form-control">
+			<label for="file" id="label-file" >
+				File
+			</label>
+          </div>
+          
+          <div class="form-control" >
+              <!-- Input Type File-->
+			<input type="File"
+				id="file" name="file" style="border-color:white; padding: 0px;" multiple  />
+				
+                <div  id="selectedFiles"></div>
+		</div>
+
+		<!-- Multi-line Text Input Control -->
+		<button type="submit" value="submit" id="submit" name="submit" style="color:black;background-color:#e9ecef">
+			Submit
+		</button>
+        
+        <button type="reset" name="reset" onclick="myFunction()"  id="reset" style="color:black;background-color:#e9ecef">
+			Reset
+		</button>
+        
+	</form>
+   {% if url %}
+	  <p> Uploaded file: <a href="{{ url }}">{ {url }} </a> </p>
+
+   {% endif %}
+
+</body>
+
+
+<script>
+
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth()+1;
+var todayDate = String(date.getDate()).padStart(2,'0');
+var datePattern = year + '-' + month + '-' + todayDate;
+document.getElementById("date").value = datePattern;
+
+const yearSelect = document.getElementById("year");      
+        
+function populateYears(){
+    //Get the current year as a number
+    let year = new Date().getFullYear();
+    //Make the previous 100 years be an option
+    for(let i = 0; i < 101; i++){
+        const option = document.createElement("option");
+        option.textContent = year - i;
+        yearSelect.appendChild(option);
+    }
+}
+
+populateYears();
+
+
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init, false);
+	
+	function init() {
+		document.querySelector('#file').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		for(var i=0; i<files.length; i++) {
+			var f = files[i];
+			
+			selDiv.innerHTML += f.name + "<br/>";
+
+		}
+		
+	}
+    
+	
+
+    //file upload limit 500MB (BYTES) (in binary) for each
+    var uploadField = document.getElementById("file");
+
+    uploadField.onchange = function() {
+	  	if(this.files[0].size > 524288000){
+		 	alert("File is too big!");
+		 	this.value = "";
+	  	};
+  	};
+
+
+//reset files
+	function myFunction() {
+		document.getElementById("selectedFiles").style.visibility = "hidden";
+	}
+	  
+	  
+
+	
+
+</script>
+
+
+
+</html>
+
+

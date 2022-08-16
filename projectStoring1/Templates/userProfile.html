@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="script.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"  ></script>
+    <script scr =" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" > </script>
+    <title>Document</title>
+
+    <style>
+    
+    	
+        
+        body {
+            background: rgb(99, 39, 120)
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #BA68C8
+        }
+        
+        .profile-button {
+            background: rgb(99, 39, 120);
+            box-shadow: none;
+            border: none
+        }
+        
+        .profile-button:hover {
+            background: #682773
+        }
+        
+        .profile-button:focus {
+            background: #682773;
+            box-shadow: none
+        }
+        
+        .profile-button:active {
+            background: #682773;
+            box-shadow: none
+        }
+        
+        .back:hover {
+            color: #682773;
+            cursor: pointer
+        }
+        
+        .labels {
+            font-size: 15px;
+            margin-top:15px;
+            margin-bottom:8px;
+        }        
+    </style>
+</head>
+<body style="background-color:#e9ecef">
+
+    
+    <div class="container rounded bg-white mt-5 mb-5" style="margin-top:80px !important;">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="{% static 'images/user_profile.PNG' %}"><span class="font-weight-bold">{{data.user}}</span><span class="text-black-50">{{data.email}}</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                       <h2 class="text-right">Profile Settings</h2>
+                     
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12"><label class="labels">First Name</label><div class="form-control">{{data.fname}}</div></div>
+                        <div class="col-md-12"><label class="labels">Last Name</label><div class="form-control">{{data.lname}}</div></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels" style="margin-top:2.5px;">Field of Study </label>
+                          <div class="form-control">
+                            {{data.branch}}
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-12"><label class="labels">Email ID</label><div class="form-control">{{data.email}}</div></div>
+                        <div class="col-md-12"><label class="labels">Linkedln Profile</label><div class="form-control">{{data.linkedIn}}</div></div>
+                         
+                        <div class="col-md-12"><label class="labels">Role</label>
+                            <div class="form-control">
+                             {{data.role}}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels" style="margin-top:2.5px;">Company Name</label><div class="form-control">{{data.cname}}</div>
+                        <div class="col-md-14"><label class="labels">Year of Joining</label><div class="form-control">{{data.yoj}}</div>
+                    </div>
+                    <div class="mt-5 text-center"><a href="updateProfile"><button class="btn btn-primary profile-button" type="button" style="background-color:#DFB163;">Edit Profile</button></a></div>                  
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script>
+
+        function setSelectedIndexRole(s, valsearch)
+        {
+            // Loop through all the items in drop down list
+            for (i = 0; i< s.options.length; i++) { 
+        
+                if (s.options[i].value == valsearch) {
+        
+                    // Item is found. Set its property and exit
+                    s.options[i].selected = true;
+                    break;
+                }
+            }
+            if(valsearch == "fresher"){
+                document.getElementById("companyName").disabled = true;
+                document.getElementById("yoj").disabled = true;
+            }
+        
+            return;
+        
+        }
+        
+        setSelectedIndexRole(document.getElementById("role"),"{{data.role}}");
+
+        function setSelectedIndexStudy(s, valsearch)
+        {
+            // Loop through all the items in drop down list
+            for (i = 0; i< s.options.length; i++) { 
+        
+                if (s.options[i].value == valsearch) {
+        
+                    // Item is found. Set its property and exit
+                    s.options[i].selected = true;
+                    break;
+                }
+            }
+        
+            return;
+        
+        }
+        
+        setSelectedIndexStudy(document.getElementById("study"),"{{data.branch}}");
+
+        function myFunction(){
+            var status=document.getElementById("role");
+            if(status.value=="fresher"){
+                document.getElementById("companyName").value = 'None';
+                document.getElementById("yoj").value = 'None';  
+                document.getElementById("companyName").disabled = true;
+                document.getElementById("yoj").disabled = true;
+            }
+            else{
+            	document.getElementById("companyName").disabled = false;
+                document.getElementById("yoj").disabled = false;
+            }
+        }
+        
+        //myFunction(document.getElementById("role"))
+
+        </script>
+        
+</body>
+</html>
+
